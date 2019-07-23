@@ -4,6 +4,8 @@ global XB
 global HtMl
 global html
 global B9
+global B90
+
 XB=1
 B9=9
 
@@ -28,8 +30,8 @@ for x in range (0,XN):
             f2.write(f1.read())
         f2.write(f2_remainder)
 
-    
-    
+
+
     # Read in the file
     with open(r'C:\Users\6871347\Desktop\TEST\L1.html', 'r') as file :
       filedata = file.read()

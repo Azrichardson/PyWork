@@ -7,6 +7,7 @@ global HtMl
 global html
 global FO
 global B9
+global B90
 XB=1
 B9=9
 FO= "myfile" + str(time.time())+".html"
@@ -21,7 +22,7 @@ with open(r"C:\Users\6871347\Desktop\TEST\TEST.html", "r+") as f2:
     with open(r"C:\Users\6871347\Desktop\TEST\firstLine.html", "r+") as f1:
         f2.write(f1.read())
     f2.write(f2_remainder)
-    
+
 DIR=r'C:\Users\6871347\Desktop\BATCH'
 onlyfiles = next(os.walk(DIR))[2] #dir is your directory path as string
 XN=(len(onlyfiles))
@@ -42,8 +43,8 @@ for x in range (0,XN):
             f2.write(f1.read())
         f2.write(f2_remainder)
 
-    
-    
+
+
     # Read in the file
     with open(r'C:\Users\6871347\Desktop\TEST\L1.html', 'r') as file :
       filedata = file.read()
