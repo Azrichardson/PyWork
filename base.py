@@ -1,7 +1,8 @@
     #import dependent modules
 import os, time, random, fileinput, tkinter
     #intialize variable set 0.\
-from tkinter import filedialogue as fd
+from tkinter import filedialog as fd
+#set filedialog from tk library to fd
 global ImageNum
     #image number ex:117339, 117339_1.\
 global DocPrimary, DocSecondary, DocTertiary
@@ -22,5 +23,6 @@ print(DocNameFinal)
 open(DocNameFinal,"w+")
 #creates and opens the created final document (DocPrimary) for read/Write
 DocNameFinal.close()
-
+#close DocNameFinal so the script doesnt freak
 ImageDir = fd.askopenfilename()
+print(ImageDir)
