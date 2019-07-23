@@ -1,6 +1,7 @@
     #import dependent modules
-import os, time, random, fileinput
+import os, time, random, fileinput, tkinter
     #intialize variable set 0.\
+from tkinter import filedialogue as fd
 global ImageNum
     #image number ex:117339, 117339_1.\
 global DocPrimary, DocSecondary, DocTertiary
@@ -14,8 +15,12 @@ global DocName, ImageDir, OutputDir, DocNameFinal
     #OutputDir (Directory that the final document will be output to)\
 DocName=input("Document name")
 print (DocName)
-
+#get user input for filename
 DocNameFinal =DocName + "_" + str(time.time())+".html"
 print(DocNameFinal)
-
+#create final document name with timestamp
 open(DocNameFinal,"w+")
+#creates and opens the created final document (DocPrimary) for read/Write
+DocNameFinal.close()
+
+ImageDir = fd.askopenfilename()
