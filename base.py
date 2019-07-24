@@ -64,3 +64,43 @@ print(DocNameFinal)
 #create final document name with timestamp
 open(OutputDir+"/" + DocNameFinal,"w+")
 #creates and opens the created final document (DocPrimary) for read/Write
+
+ExitCond="n"
+while(ExitCond !="y"):
+    DocPrimary = 0
+    #purge DocPrimary
+    root = Tk()
+    root.withdraw()
+    root.update()
+    DocPrimary = fd.askopenfilename()
+    root.destroy()
+    #create and destroy DocPrimary root selection file dialog
+    print(DocPrimary)
+    ExitCond = input("is the output directory " + DocPrimary + " correct (y/n)");
+    #directory confirmation
+    if ExitCond == "no":
+        ExitCond = "n"
+    if ExitCond == "yes":
+        ExitCond = "y"
+        #exit catch just incase again
+print (DocPrimary)
+
+ExitCond="n"
+while(ExitCond !="y"):
+    DocSecondary = 0
+    #purge DocSecondary
+    root = Tk()
+    root.withdraw()
+    root.update()
+    DocSecondary = fd.askopenfilename()
+    root.destroy()
+    #create and destroy DocSecondary root selection file dialog
+    print(DocSecondary)
+    ExitCond = input("is the output directory " + DocSecondary + " correct (y/n)");
+    #directory confirmation
+    if ExitCond == "no":
+        ExitCond = "n"
+    if ExitCond == "yes":
+        ExitCond = "y"
+        #exit catch just incase again
+print (DocSecondary)
