@@ -28,30 +28,40 @@ DocNameFinal.close()
 ExitCond="n"
 while(ExitCond !="y"):
     ImageDir = 0
+    #purge ImageDir
     root = Tk()
     root.withdraw()
     root.update()
     ImageDir = fd.askopenfilename()
     root.destroy()
+    #create and destroy ImageDir root selection file dialog
     print(ImageDir)
     ExitCond = input("is the image directory " + ImageDir + " correct (y/n)");
+    #directory confirmation
     if ExitCond == "no":
         ExitCond = "n"
     if ExitCond == "yes":
         ExitCond = "y"
+        #exit catch incase someone cant see that it means the letters y/n
 print (ImageDir)
+#prints the image directory
+#adds the Image directory to the ImageDir variable for later use
 ExitCond="n"
 while(ExitCond !="y"):
     OutputDir = 0
+    #purge OutputDir
     root = Tk()
     root.withdraw()
     root.update()
     OutputDir = fd.askopenfilename()
     root.destroy()
+    #create and destroy OutputDir root selection file dialog
     print(ImageDir)
     ExitCond = input("is the output directory " + OutputDir + " correct (y/n)");
+    #directory confirmation
     if ExitCond == "no":
         ExitCond = "n"
     if ExitCond == "yes":
         ExitCond = "y"
+        #exit catch just incase again
 print (OutputDir)
