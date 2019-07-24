@@ -1,5 +1,5 @@
     #import dependent modules
-import os, time, random, fileinput, tkinter
+import os, time, random, fileinput, tkinter, os.path
     #intialize variable set 0.\
 from tkinter import filedialog as fd
 from tkinter import Tk
@@ -22,7 +22,7 @@ while(ExitCond !="y"):
     root = Tk()
     root.withdraw()
     root.update()
-    ImageDir = fd.askopenfilename()
+    ImageDir = fd.askdirectory()
     root.destroy()
     #create and destroy ImageDir root selection file dialog
     print(ImageDir)
@@ -35,6 +35,11 @@ while(ExitCond !="y"):
         #exit catch incase someone cant see that it means the letters y/n
 print (ImageDir)
 #prints the image directory
+
+onlyfiles = next(os.walk(ImageDir))[2]
+ImageNum=(len(onlyfiles))
+print (ImageNum)
+
 #adds the Image directory to the ImageDir variable for later use
 ExitCond="n"
 while(ExitCond !="y"):
@@ -104,3 +109,15 @@ while(ExitCond !="y"):
         ExitCond = "y"
         #exit catch just incase again
 print (DocSecondary)
+
+F = open("Settings.cfg","w+")
+CfgList ={
+    "ImageNum" : str(ImageNum),
+    "ImageDir" : str(ImageDir),
+    "OutputDir" : str(OutputDir),
+    "DocPrimary" : str(DocPrimary),
+    "DocSecondary" : str(DocSecondary),
+    }
+print(CfgList)
+F.write(str(CfgList));
+F.close()
