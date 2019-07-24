@@ -76,7 +76,7 @@ while(ExitCond !="y"):
     root.destroy()
     #create and destroy DocPrimary root selection file dialog
     print(DocPrimary)
-    ExitCond = input("is the output directory " + DocPrimary + " correct (y/n)");
+    ExitCond = input("is the Primary directory " + DocPrimary + " correct (y/n)");
     #directory confirmation
     if ExitCond == "no":
         ExitCond = "n"
@@ -96,7 +96,7 @@ while(ExitCond !="y"):
     root.destroy()
     #create and destroy DocSecondary root selection file dialog
     print(DocSecondary)
-    ExitCond = input("is the output directory " + DocSecondary + " correct (y/n)");
+    ExitCond = input("is the Secondary directory " + DocSecondary + " correct (y/n)");
     #directory confirmation
     if ExitCond == "no":
         ExitCond = "n"
@@ -104,3 +104,7 @@ while(ExitCond !="y"):
         ExitCond = "y"
         #exit catch just incase again
 print (DocSecondary)
+
+F = open("DirVar.xml", "w+")
+F.write(str(ImageDir))
+F.close()
