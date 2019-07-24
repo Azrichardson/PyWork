@@ -121,3 +121,5 @@ CfgList ={
 print(CfgList)
 F.write(str(CfgList));
 F.close()
+
+import DocuWrite.py
