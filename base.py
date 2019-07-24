@@ -4,7 +4,7 @@ import os, time, random, fileinput, tkinter
 from tkinter import filedialog as fd
 from tkinter import Tk
 #set filedialog from tk library to fd
-global ImageNum
+global ImageNum, ExitCond
     #image number ex:117339, 117339_1.\
 global DocPrimary, DocSecondary, DocTertiary
     #the 3 different documents generated and used. DocPrimary is everything inserted, DocSecondary is base html.\
@@ -25,9 +25,33 @@ open(DocNameFinal,"w+")
 #creates and opens the created final document (DocPrimary) for read/Write
 DocNameFinal.close()
 #close DocNameFinal so the script doesnt freak
-root = Tk()
-root.withdraw()
-root.update()
-ImageDir = fd.askopenfilename()
-root.destroy()
-print(ImageDir)
+ExitCond="n"
+while(ExitCond !="y"):
+    ImageDir = 0
+    root = Tk()
+    root.withdraw()
+    root.update()
+    ImageDir = fd.askopenfilename()
+    root.destroy()
+    print(ImageDir)
+    ExitCond = input("is the image directory " + ImageDir + " correct (y/n)");
+    if ExitCond == "no":
+        ExitCond = "n"
+    if ExitCond == "yes":
+        ExitCond = "y"
+print (ImageDir)
+ExitCond="n"
+while(ExitCond !="y"):
+    OutputDir = 0
+    root = Tk()
+    root.withdraw()
+    root.update()
+    OutputDir = fd.askopenfilename()
+    root.destroy()
+    print(ImageDir)
+    ExitCond = input("is the image directory " + ImageDir + " correct (y/n)");
+    if ExitCond == "no":
+        ExitCond = "n"
+    if ExitCond == "yes":
+        ExitCond = "y"
+print (OutputDir)
