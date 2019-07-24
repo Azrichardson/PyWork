@@ -49,7 +49,7 @@ while(ExitCond !="y"):
     OutputDir = fd.askopenfilename()
     root.destroy()
     print(ImageDir)
-    ExitCond = input("is the image directory " + ImageDir + " correct (y/n)");
+    ExitCond = input("is the output directory " + OutputDir + " correct (y/n)");
     if ExitCond == "no":
         ExitCond = "n"
     if ExitCond == "yes":
