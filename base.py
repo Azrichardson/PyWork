@@ -104,7 +104,3 @@ while(ExitCond !="y"):
         ExitCond = "y"
         #exit catch just incase again
 print (DocSecondary)
-
-F = open("DirVar.xml", "w+")
-F.write(str(ImageDir))
-F.close()
