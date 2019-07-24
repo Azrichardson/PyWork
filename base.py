@@ -15,16 +15,6 @@ global DocName, ImageDir, OutputDir, DocNameFinal
     #NamePrompt (prompt for custom document name on output)\
     #ImageDir (prompt for directory to all the images to be used)\
     #OutputDir (Directory that the final document will be output to)\
-DocName=input("Document name")
-print (DocName)
-#get user input for filename
-DocNameFinal =DocName + "_" + str(time.time())+".html"
-print(DocNameFinal)
-#create final document name with timestamp
-open(DocNameFinal,"w+")
-#creates and opens the created final document (DocPrimary) for read/Write
-DocNameFinal.close()
-#close DocNameFinal so the script doesnt freak
 ExitCond="n"
 while(ExitCond !="y"):
     ImageDir = 0
@@ -53,7 +43,7 @@ while(ExitCond !="y"):
     root = Tk()
     root.withdraw()
     root.update()
-    OutputDir = fd.askopenfilename()
+    OutputDir = fd.askdirectory()
     root.destroy()
     #create and destroy OutputDir root selection file dialog
     print(ImageDir)
@@ -65,3 +55,12 @@ while(ExitCond !="y"):
         ExitCond = "y"
         #exit catch just incase again
 print (OutputDir)
+
+DocName=input("Document name")
+print (DocName)
+#get user input for filename
+DocNameFinal =DocName + "_" + str(time.time())+".html"
+print(DocNameFinal)
+#create final document name with timestamp
+open(OutputDir+"/" + DocNameFinal,"w+")
+#creates and opens the created final document (DocPrimary) for read/Write
