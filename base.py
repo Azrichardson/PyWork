@@ -90,6 +90,7 @@ while(ExitCond !="y"):
         #exit catch just incase again
 print (DocPrimary)
 
+
 ExitCond="n"
 while(ExitCond !="y"):
     DocSecondary = 0
