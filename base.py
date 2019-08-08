@@ -16,6 +16,7 @@ global DocName, ImageDir, OutputDir, DocNameFinal
     #ImageDir (prompt for directory to all the images to be used)\
     #OutputDir (Directory that the final document will be output to)\
 ExitCond="n"
+print("select image directory")
 while(ExitCond !="y"):
     ImageDir = 0
     #purge ImageDir
@@ -42,6 +43,7 @@ print (ImageNum)
 
 #adds the Image directory to the ImageDir variable for later use
 ExitCond="n"
+print("select Output directory")
 while(ExitCond !="y"):
     OutputDir = 0
     #purge OutputDir
@@ -68,9 +70,12 @@ DocNameFinal =DocName + "_" + str(time.time())+".html"
 print(DocNameFinal)
 #create final document name with timestamp
 open(OutputDir+"/" + DocNameFinal,"w+")
+global OutputDirFinal
+OutputDirFinal= OutputDir+"/" +DocNameFinal
 #creates and opens the created final document (DocPrimary) for read/Write
 
 ExitCond="n"
+print("select DocPrimary directory")
 while(ExitCond !="y"):
     DocPrimary = 0
     #purge DocPrimary
@@ -92,6 +97,7 @@ print (DocPrimary)
 
 
 ExitCond="n"
+print("select Secondary directory")
 while(ExitCond !="y"):
     DocSecondary = 0
     #purge DocSecondary
@@ -111,16 +117,31 @@ while(ExitCond !="y"):
         #exit catch just incase again
 print (DocSecondary)
 
-F = open("Settings.cfg","w+")
-CfgList ={
+#F = open("Settings.cfg","w+")
+#CfgList ={
+#    "ImageNum" : str(ImageNum),
+#    "ImageDir" : str(ImageDir),
+#    "OutputDir" : str(OutputDir),
+#    "DocPrimary" : str(DocPrimary),
+#    "DocSecondary" : str(DocSecondary),
+#    }
+#print(CfgList)
+#F.write(str(CfgList));
+#F.close()
+
+import json
+
+VARSON ={
     "ImageNum" : str(ImageNum),
     "ImageDir" : str(ImageDir),
     "OutputDir" : str(OutputDir),
     "DocPrimary" : str(DocPrimary),
     "DocSecondary" : str(DocSecondary),
+    "OutputDirFinal" : str(OutputDirFinal)
     }
-print(CfgList)
-F.write(str(CfgList));
-F.close()
+
+
+with open('settings.json', 'w') as outfile:
+    json.dump(VARSON, outfile)
 
 import DocuWrite.py
